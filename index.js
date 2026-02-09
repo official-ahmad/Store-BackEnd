@@ -3,15 +3,16 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const connectDB = require("./db");
-const adminRoutes = require("./routes/adminRoutes");
-const port = process.env.PORT;
+
+const adminRoutes = require("./Admin-CRUD/routes/productRoutes");
+
+const port = process.env.PORT || 5000;
 
 // 1. DB-connection
 connectDB();
 
-// 2. Middlewares (as a json format for postman)
+// 2. Middlewares
 app.use(express.json());
-
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -19,7 +20,12 @@ app.use(
 );
 
 // 3. Routes
-app.use("/api/admins", adminRoutes);
+// URL: http://localhost:8000/api/admin/add
+app.use("/api/admin", adminRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Server is running perfectly!");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
