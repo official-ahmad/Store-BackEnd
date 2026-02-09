@@ -21,7 +21,7 @@ app.use(
 );
 
 // 3. Routes
-// URL: http://localhost:8000/api/admin/add
+// URL: http://localhost:8000/api/admin/add - to add products!
 app.use("/api/admins", adminRoutes);
 
 app.get("/", (req, res) => {
