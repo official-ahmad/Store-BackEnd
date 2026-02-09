@@ -3,10 +3,11 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 const connectDB = require("./db");
+const adminRoutes = require("./routes/adminRoutes");
 
-const adminRoutes = require("./Admin-CRUD/routes/productRoutes");
+// const adminRoutes = require("./Admin-CRUD/routes/productRoutes");
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 // 1. DB-connection
 connectDB();
@@ -21,7 +22,7 @@ app.use(
 
 // 3. Routes
 // URL: http://localhost:8000/api/admin/add
-app.use("/api/admin", adminRoutes);
+app.use("/api/admins", adminRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is running perfectly!");
