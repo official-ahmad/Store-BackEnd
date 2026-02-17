@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const connectDB = require("./db");
 const adminRoutes = require("./routes/adminRoutes");
+const productRoutes = require("./Admin-CRUD/routes/productRoutes");
 
 // const adminRoutes = require("./Admin-CRUD/routes/productRoutes");
 
@@ -23,9 +24,10 @@ app.use(
 // 3. Routes
 // URL: http://localhost:8000/api/admin/add - to add products!
 app.use("/api/admins", adminRoutes);
+app.use("/api/admin/products", productRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Server is running perfectly!");
+  res.send("Server is running!");
 });
 
 app.listen(port, () => {
