@@ -64,9 +64,6 @@ const loginAdmin = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    // const token = jwt.sign(payload, "mySuperSecretKey123", {
-    //   expiresIn: "1h",
-    // });
 
     res.status(200).json({
       success: true,
