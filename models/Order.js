@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // Import "mongoose" from Backend Server Cors
 
 const orderSchema = new mongoose.Schema({
   orderNumber: { type: String, unique: true, required: true },
